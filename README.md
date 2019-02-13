@@ -19,11 +19,11 @@ El programa necesita los siguientes ficheros para su funcionamiento:
 - **gestioninventario.py**: scritp de Python.
 - **inventarioAlmacen(.txt o .csv)**: fichero en el que se encuentra la información del stock que hay en inventario. Se codifica de la siguiente manera.
 
-![Codificación archivo inventario](https://github.com/NotMyBusiness/GestionInventario/blob/master/media/inventario.jpg)
+![Codificación archivo inventario](https://github.com/NotMyBusiness/GestionInventarioPython/blob/master/media/inventario.jpg)
 
 - **VentasRepos(.txt o .csv)**: fichero que recoge las operaciones de venta o reposición. Se encuentra codificado de la siguiente forma:
 
-![Codificación archivo operaciones](https://github.com/NotMyBusiness/GestionInventario/blob/master/media/ventasrepos.jpg)
+![Codificación archivo operaciones](https://github.com/NotMyBusiness/GestionInventarioPython/blob/master/media/ventasrepos.jpg)
 
 > La creación del fichero VentasRepos se ha creado mediante Mockaroo para la generación de un fichero con una extensión considerable.
 
@@ -61,4 +61,4 @@ python3 gestioninventario.py inventarioAlmacen.csv VentasRepos.csv
 
 ## Licencia
 
-Este proyecto se encuentra bajo la licencia [**_GNU General Public License v3.0_**](https://github.com/NotMyBusiness/GestionInventario/blob/master/LICENSE)
+Este proyecto se encuentra bajo la licencia [**_GNU General Public License v3.0_**](https://github.com/NotMyBusiness/GestionInventarioPython/blob/master/LICENSE)
