@@ -3,7 +3,7 @@
 
 ## Instalación
 
-Para el funcionamiento del programa los únicos requisitos son [Python3](https://www.python.org/). Una vez instalado Python es necesario instalar la librería [Pandas](https://pandas.pydata.org/index.html). Para ello basta con ejecutar el siguiente comando:
+Para el funcionamiento del programa los únicos requisitos son [Python3](https://www.python.org/) y la librería [Pandas](https://pandas.pydata.org/index.html). Para ello basta con ejecutar el siguiente comando:
 
 
 ```shell
@@ -52,10 +52,39 @@ Y el siguiente comando en caso de lectura de archivos .csv:
 python3 gestion_inventario.py inventarioAlmacen.csv VentasRepos.csv
 ```
 
-## To-Do
+# Totalizador de operaciones
+> Totaliza las ventas y reposiciones de los diferentes productos mediante una técnica __mapreduce__.
+
+## Instalación
+
+El único requisito,una vez instalado [Python3](https://www.python.org/), es instalar la librería [mrjob](https://pythonhosted.org/mrjob/). Para ello basta con ejecutar el siguiente comando:
+
+
+```shell
+pip install mrjob
+```
+
+## Ficheros
+
+Para su funcionamiento se requiere un fichero con la misma estructura que el fichero "VentasRepos.txt". En este caso se encuentra disponible el fichero **VentasReposMapReduce.txt**, cuya única diferencia con el anterior el número de filas disponibles (100 vs 1.000).
+
+## Ejecución
+
+Para su ejecución se debe lanzar el siguiente comando:
+
+```shell
+python totalizador_operaciones.py VentasReposMapReduce.txt
+```
+En el caso de que la información procesada se quiera volcar a un ficero en lugar de ser impresa en pantalla el comando será:
+
+```shell
+python totalizador_operaciones.py VentasReposMapReduce.txt > example.txt
+```
+
+# To-Do
 
 - ~~Comentar las funciones.~~
-- Implementar mediante una técnica **_mapreduce_** y la librería [mrjob](https://pythonhosted.org/mrjob/) una funcionalidad que totalice las ventas y reposiciones para un determinado periodo.
+- ~~Implementar mediante una técnica **_mapreduce_** y la librería [mrjob](https://pythonhosted.org/mrjob/) una funcionalidad que totalice las ventas y reposiciones para un determinado periodo.~~
 
 
 ## Licencia
