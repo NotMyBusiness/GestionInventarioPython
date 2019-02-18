@@ -54,7 +54,7 @@ python3 gestion_inventario.py inventarioAlmacen.csv VentasRepos.csv
 
 ## To-Do
 
-- Comentar las funciones.
+- ~~Comentar las funciones.~~
 - Implementar mediante una técnica **_mapreduce_** y la librería [mrjob](https://pythonhosted.org/mrjob/) una funcionalidad que totalice las ventas y reposiciones para un determinado periodo.
 
 
