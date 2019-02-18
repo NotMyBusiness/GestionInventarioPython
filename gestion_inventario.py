@@ -3,11 +3,34 @@ import re
 import pandas as pd
 
 class gestion_inventario():
+    '''
+    Clase gestión del inventario. Se encarga de leer la información del inventario
+    y actualizarla con las diferentes ventas y reposiciones que tienen lugar.
     
-    def __init__(self):
-        pass
+    Atributos
+    ---------
+    inventario, operaciones: archivo
+    
+    '''
+    
+    def __init__(self, inventario, operaciones):
+        '''
+        Constructor
+        
+        Parámetros
+        ----------
+        inventario: archivo
+        operaciones: archivo
+        '''
+        self.inventario = inventario
+        self.operaciones = operaciones
                 
     def leer_inventario(self,input_invent):
+        '''
+        Esta función se encarga de llamar a las funciones de lectura del inventario
+        según sean los archivos de entrada .txt o .csv
+        
+        '''
         if re.search(r'.\.txt', input_invent):
             self.leer_inventario_txt(input_invent)
         elif re.search(r'.\.csv', input_invent):
@@ -17,6 +40,10 @@ class gestion_inventario():
             sys.exit()
    
     def leer_inventario_txt(self,input_invent):
+        '''
+        Esta función se encarga de leer y almacenar en un dataframe la información
+        del inventario si el archivo de origen es un .txt
+        '''
         try:
             self.inventario = pd.read_csv(input_invent, 
                                           sep = ',', header = None, 
@@ -27,6 +54,10 @@ class gestion_inventario():
             sys.exit()        
    
     def leer_inventario_csv(self,input_invent):
+        '''
+        Esta función se encarga de leer y almacenar en un dataframe la información
+        del inventario si el archivo de origen es un .csv
+        '''
         try:
             self.inventario = pd.read_csv(input_invent, header = None, 
                                           names = ['Cod', 'Cmax', 'Umbral', 'Creal',
@@ -38,6 +69,12 @@ class gestion_inventario():
             
 
     def leer_operaciones(self,input_oper):
+        '''
+        Esta función auxiliar se encarga de llamar a las funciones de lectura 
+        de las operaciones (venta y reposición) según sean los archivos de 
+        entrada .txt o .csv
+        
+        '''
         if re.search(r'.\.txt', input_oper):
             self.leer_oper_txt(input_oper)
         elif re.search(r'.\.csv', input_oper):
@@ -47,6 +84,11 @@ class gestion_inventario():
             sys.exit()
    
     def leer_oper_txt(self,input_oper):
+        '''
+        Esta función es la encargada de leer y almacenar en un dataframe la 
+        información correspondiente a las operaciones (venta y reposición) 
+        si el archivo de origen es un .txt
+        '''
         try:
             self.operaciones = pd.read_csv(input_oper, 
                                           delim_whitespace = True, header = None, 
@@ -61,6 +103,11 @@ class gestion_inventario():
         
    
     def leer_oper_csv(self,input_oper):
+        '''
+        Esta función es la encargada de leer y almacenar en un dataframe la 
+        información correspondiente a las operaciones (venta y reposición) 
+        si el archivo de origen es un .csv
+        '''
         try:
             self.operaciones = pd.read_csv(input_oper, sep = ',', 
                                            names = ['TipoOper', 'Fecha', 'Hora', 'Cod','Qty'])
@@ -69,8 +116,17 @@ class gestion_inventario():
             sys.exit()
 
     def realizar_oper(self):
-        df = self.inventario.copy()
-        df2 = self.operaciones.copy()
+        '''
+        Esta función realiza las operaciones de venta y reposición. Itera a través
+        de ambos dataframe para realizar la sustracción de las unidades de cada
+        operación en caso de que sea una venta, y la suma de éstas en caso de 
+        ser una reposición.
+        
+        En el caso de que la operación no se pueda realizar se imprimirá un aviso
+        detallando la razón.
+        '''
+        df = self.inventario
+        df2 = self.operaciones
         
         
         for i in range(0, df2['Cod'].size):
@@ -106,23 +162,39 @@ class gestion_inventario():
    
     
     def grabar_inventario(self, input_invent):
+        '''
+        Esta función se encarga llamar a las funciones de grabación del inventario
+        tras ser actualizado para que sean guardados en un archivo .txt o .csv
+        
+        Serán guardados en el mismo formato que el archivo de origen, es decir,
+        si el inventario de origen era un archivo .txt, el inventario final será
+        guardado en otro archivo .txt
+        '''        
         if re.search(r'.\.txt', input_invent):
             self.grabar_inventario_txt()
         elif re.search(r'.\.csv', input_invent):
             self.grabar_inventario_csv()
         
     def grabar_inventario_txt(self):
-        self.inventario.to_csv('new_inventario.txt', index = False, header = False)
+        '''
+        Esta función se encarga de grabar la información del inventario tras
+        ser actualizado por las operaciones en un archivo .txt
+        ''' 
+        self.inventario.to_csv('nuevo_inventario.txt', index = False, header = False)
                           
     def grabar_inventario_csv(self):
-        self.inventario.to_csv('new_inventario.csv', index = False, header = False)
+        '''
+        Esta función se encarga de grabar la información del inventario tras
+        ser actualizado por las operaciones en un archivo .csv
+        ''' 
+        self.inventario.to_csv('nuevo_inventario.csv', index = False, header = False)
         
     
 def main():
     input_invent = str(sys.argv[1])
     input_oper = str(sys.argv[2])
    
-    gestion = gestion_inventario()
+    gestion = gestion_inventario(input_invent,input_oper)
     
     
     print('-- Leyendo el archivo con el inventario ...')

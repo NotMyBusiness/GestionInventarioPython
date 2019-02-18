@@ -16,7 +16,7 @@ Otra opción es instalar [Anaconda](https://www.anaconda.com/), una versión enc
 
 El programa necesita los siguientes ficheros para su funcionamiento:
 
-- **gestioninventario.py**: scritp de Python.
+- **gestion_inventario.py**: scritp de Python.
 - **inventarioAlmacen(.txt o .csv)**: fichero en el que se encuentra la información del stock que hay en inventario. Se codifica de la siguiente manera.
 
 ![Codificación archivo inventario](https://github.com/NotMyBusiness/GestionInventarioPython/blob/master/media/inventario.jpg)
@@ -44,12 +44,12 @@ Actualmente cuenta con las siguientes funcionalidades:
 Para la puesta en marcha se debe ejecutar el siguiente comando en caso de lectura de archivos .txt:
 
 ```shell
-python3 gestioninventario.py inventarioAlmacen.txt VentasRepos.txt
+python3 gestion_inventario.py inventarioAlmacen.txt VentasRepos.txt
 ```
 Y el siguiente comando en caso de lectura de archivos .csv:
 
 ```shell
-python3 gestioninventario.py inventarioAlmacen.csv VentasRepos.csv
+python3 gestion_inventario.py inventarioAlmacen.csv VentasRepos.csv
 ```
 
 ## To-Do
