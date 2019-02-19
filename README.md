@@ -1,3 +1,20 @@
+Tabla de Contenidos
+=================
+
+   * [Gestor de inventario mediante Python](#gestor-de-inventario-mediante-python)
+      * [Instalación](#instalación)
+      * [Ficheros](#ficheros)
+      * [Features](#features)
+      * [Ejecución](#ejecución)
+   * [Totalizador de operaciones](#totalizador-de-operaciones)
+      * [Instalación](#instalación-1)
+      * [Ficheros](#ficheros-1)
+      * [Ejecución](#ejecución-1)
+   * [To-Do](#to-do)
+   * [Licencia](#licencia)
+   * [Notas](#notas)
+
+
 # Gestor de inventario mediante Python
 > Gestiona el inventario de un fichero .txt o .csv, canalizando las operaciones de venta y reposición de los distintos productos. Tras la última operación vuelca el inventario final en un nuevo fichero con el mismo formato que el inventario de entrada.
 
@@ -19,11 +36,11 @@ El programa necesita los siguientes ficheros para su funcionamiento:
 - **gestion_inventario.py**: scritp de Python.
 - **inventarioAlmacen(.txt o .csv)**: fichero en el que se encuentra la información del stock que hay en inventario. Se codifica de la siguiente manera.
 
-![Codificación archivo inventario](https://github.com/NotMyBusiness/GestionInventarioPython/blob/master/media/inventario.jpg)
+![Codificación archivo inventario](/media/inventario.jpg)
 
 - **VentasRepos(.txt o .csv)**: fichero que recoge las operaciones de venta o reposición. Se encuentra codificado de la siguiente forma:
 
-![Codificación archivo operaciones](https://github.com/NotMyBusiness/GestionInventarioPython/blob/master/media/ventasrepos.jpg)
+![Codificación archivo operaciones](/media/ventasrepos.jpg)
 
 > La creación del fichero VentasRepos se ha creado mediante Mockaroo para la generación de un fichero con una extensión considerable.
 
@@ -54,6 +71,7 @@ python3 gestion_inventario.py inventarioAlmacen.csv VentasRepos.csv
 
 # Totalizador de operaciones
 > Totaliza las ventas y reposiciones de los diferentes productos mediante una técnica __mapreduce__.
+
 
 ## Instalación
 
@@ -87,6 +105,11 @@ python totalizador_operaciones.py VentasReposMapReduce.txt > example.txt
 - ~~Implementar mediante una técnica **_mapreduce_** y la librería [mrjob](https://pythonhosted.org/mrjob/) una funcionalidad que totalice las ventas y reposiciones para un determinado periodo.~~
 
 
-## Licencia
+# Licencia
 
-Este proyecto se encuentra bajo la licencia [**_GNU General Public License v3.0_**](https://github.com/NotMyBusiness/GestionInventarioPython/blob/master/LICENSE)
+Este proyecto se encuentra bajo la licencia [**_GNU General Public License v3.0_**](/LICENSE)
+
+
+# Notas
+
+TOC generado mediante [github-markdown-toc.](https://github.com/ekalinin/github-markdown-toc)
