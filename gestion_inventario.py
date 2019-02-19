@@ -36,7 +36,8 @@ class gestion_inventario():
         elif re.search(r'.\.csv', input_invent):
             self.leer_inventario_csv(input_invent)
         else:
-            print('Input files must be ".txt" or ".csv" files. Please input the files again')
+            print('Los archivos deben ser ".txt" or ".csv". \
+                    \n Por favor, revise el archivo del inventario')
             sys.exit()
    
     def leer_inventario_txt(self,input_invent):
@@ -50,7 +51,7 @@ class gestion_inventario():
                                           names = ['Cod', 'Cmax', 'Umbral', 'Creal',
                                                    'Ubi', 'Desc'])
         except FileNotFoundError:
-            print('File %s not found. Please input a valid file' % input_invent)
+            print('Archivo %s no encontrado. Por favor, introduzca un archivo válido.' % input_invent)
             sys.exit()        
    
     def leer_inventario_csv(self,input_invent):
@@ -63,9 +64,8 @@ class gestion_inventario():
                                           names = ['Cod', 'Cmax', 'Umbral', 'Creal',
                                                    'Ubi', 'Desc'])
         except FileNotFoundError:
-            print('File %s not found. Please input a valid file' % input_invent)
-            sys.exit()
-            
+            print('Archivo %s no encontrado. Por favor, introduzca un archivo válido.' % input_invent)
+            sys.exit()            
             
 
     def leer_operaciones(self,input_oper):
@@ -80,7 +80,8 @@ class gestion_inventario():
         elif re.search(r'.\.csv', input_oper):
             self.leer_oper_csv(input_oper)
         else:
-            print('Input files must be ".txt" or ".csv" files. Please input the files again')
+            print('Los archivos deben ser ".txt" or ".csv". \
+                    \n Por favor, revise el archivo del inventario')
             sys.exit()
    
     def leer_oper_txt(self,input_oper):
@@ -96,10 +97,8 @@ class gestion_inventario():
             
             
         except FileNotFoundError:
-            print('File %s not found. Please input a valid file' % input_oper)
+            print('Archivo %s no encontrado. Por favor, introduzca un archivo válido.' % input_oper)
             sys.exit()
-            
-        print(self.operaciones)
         
    
     def leer_oper_csv(self,input_oper):
@@ -112,7 +111,7 @@ class gestion_inventario():
             self.operaciones = pd.read_csv(input_oper, sep = ',', 
                                            names = ['TipoOper', 'Fecha', 'Hora', 'Cod','Qty'])
         except FileNotFoundError:
-            print('File %s not found. Please input a valid file' % input_oper)
+            print('Archivo %s no encontrado. Por favor, introduzca un archivo válido.' % input_oper)
             sys.exit()
 
     def realizar_oper(self):
@@ -192,8 +191,13 @@ class gestion_inventario():
         
     
 def main():
-    input_invent = str(sys.argv[1])
-    input_oper = str(sys.argv[2])
+    try:
+        input_invent = str(sys.argv[1])
+        input_oper = str(sys.argv[2])
+    except IndexError:
+        print('Debe introducir un archivo de inventario y un archivo de operaciones. \
+              \n Ejemplo: python3 gestion_inventario.py inventarioAlmacen.txt VentasRepos.txt')
+        sys.exit()
    
     gestion = gestion_inventario(input_invent,input_oper)
     

@@ -3,7 +3,7 @@
 
 ## Instalación
 
-Para el funcionamiento del programa los únicos requisitos son [Python3](https://www.python.org/) y la librería [Pandas](https://pandas.pydata.org/index.html). Para ello basta con ejecutar el siguiente comando:
+Para el funcionamiento del programa los únicos requisitos son [Python3](https://www.python.org/) y la librería [Pandas](https://pandas.pydata.org/index.html). Para su Instalación basta con ejecutar el siguiente comando:
 
 
 ```shell
@@ -33,7 +33,7 @@ Actualmente cuenta con las siguientes funcionalidades:
 
 * Lectura de ficheros .txt o .csv con la información referente al inventario y almacenamiento de ésta en un dataframe de pandas.
 * Lectura de ficheros .txt o .csv con las distintas operaciones de reposición y ventas y almacenamiento de ésta en un dataframe de pandas.
-* Realización de las distintas operaciones. En el caso de que sean ventas se reducirá la quantía al número de existencias en la estantería de ese producto. Por el contrario, en el caso de que sea una reposición se sumarán a las existencias en ese momento del producto. Adicionalmente, se hacen las siguientes comprobaciones:
+* Realización de las distintas operaciones. En el caso de que sean ventas se reducirá la cuantía al número de existencias en la estantería de ese producto. Por el contrario, en el caso de que sea una reposición se sumarán a las existencias en ese momento del producto. Adicionalmente, se hacen las siguientes comprobaciones:
     - Si a la hora de realizar la venta la cantidad es superior a las existencias saltará un error y no se realizará dicha venta.
     - Si a la hora de realizar una reposición la cantidad a reponer es superior a la capacidad de la estantería de dicho producto, se producirá un error y no se realizará dicha reposición.
     - En el momento en que las existencias sean menores o iguales al umbral, se lanzará un aviso para que se reponga el stock.
@@ -57,7 +57,7 @@ python3 gestion_inventario.py inventarioAlmacen.csv VentasRepos.csv
 
 ## Instalación
 
-El único requisito,una vez instalado [Python3](https://www.python.org/), es instalar la librería [mrjob](https://pythonhosted.org/mrjob/). Para ello basta con ejecutar el siguiente comando:
+El único requisito,una vez instalado [Python3](https://www.python.org/), es instalar la librería [mrjob](https://pythonhosted.org/mrjob/). Se instala mediante el siguiente comando:
 
 
 ```shell
