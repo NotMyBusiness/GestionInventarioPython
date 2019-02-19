@@ -141,11 +141,12 @@ class gestion_inventario():
                         df.at[j,'Creal'] = (df.at[j,'Creal'] - df2.at[i,'Qty'])
                         print('Después de: ', df.at[j,'Cod'], df.at[j,'Cmax'], 
                   df.at[j,'Umbral'], df.at[j,'Creal'], df.at[j,'Ubi'], df.at[j, 'Desc'])
+                        if (df.at[j,'Creal'] <= df.at[j,'Umbral']):
+                            print('\t ==========> AVISO: es necesario reponer existencias <==========')
                     else:
                         print('\t ==========> AVISO: venta imposible. Comprobar el stock de este producto <==========')
                           
-                    if (df.at[j,'Creal'] <= df.at[j,'Umbral']):
-                        print('\t ==========> AVISO: es necesario reponer existencias <==========')
+                   
                     
                 elif (df2.at[i,'Cod'] == df.at[j,'Cod'] and df2.at[i,'TipoOper'] == 'repos'):
                     print('Antes de  : ', df.at[j,'Cod'], df.at[j,'Cmax'], 
